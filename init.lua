@@ -41,16 +41,20 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   require 'plugins.cmp',
   require 'plugins.colorscheme',
+  require 'plugins.gitblame',
   require 'plugins.gitsigns',
   require 'plugins.grapple',
   require 'plugins.lsp',
+  require 'plugins.markview',
   require 'plugins.mini',
   require 'plugins.neotree',
   require 'plugins.oil',
   require 'plugins.outline',
   require 'plugins.sleuth',
+  require 'plugins.snow',
   require 'plugins.telescope',
   require 'plugins.todo',
   require 'plugins.treesitter',
 })
 
+vim.cmd.colorscheme 'tokyonight-night' -- tokyonight-night gruvbox

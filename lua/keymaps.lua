@@ -37,3 +37,6 @@ vim.keymap.set('v', '<leader>y', '"+y', { desc = 'Yoink to system clipboard' })
 vim.keymap.set('n', '<leader>p', '"+p', { desc = 'Paste from system clipboard' })
 vim.keymap.set('v', '<leader>p', '"+p', { desc = 'Paste from system clipboard' })
 
+vim.keymap.set('n', '<leader>sn', ':LetItSnow<CR>', {desc = 'Let it snow!'})
+
+vim.keymap.set('n', '<leader>gb', ':BlameToggle virtual<CR>')
