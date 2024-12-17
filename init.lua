@@ -58,3 +58,4 @@ require('lazy').setup({
 })
 
 vim.cmd.colorscheme 'tokyonight-night' -- tokyonight-night gruvbox
+vim.diagnostic.config({ virtual_text = false })

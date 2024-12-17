@@ -111,6 +111,7 @@ return {
           --
           -- When you move your cursor, the highlights will be cleared (the second autocommand).
           local client = vim.lsp.get_client_by_id(event.data.client_id)
+          --[[
           if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
             local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
             vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
@@ -133,6 +134,7 @@ return {
               end,
             })
           end
+          ]]--
 
           -- The following code creates a keymap to toggle inlay hints in your
           -- code, if the language server you are using supports them
@@ -227,7 +229,14 @@ return {
     event = "VeryLazy", -- Or `LspAttach`
     priority = 1000, -- needs to be loaded in first
     config = function()
-      require('tiny-inline-diagnostic').setup()
+      require('tiny-inline-diagnostic').setup({
+        options = {
+          multilines = true,
+          multiple_diag_under_cursor = true,
+          throttle = 0,
+          show_all_diags_on_cursorline = true,
+        }
+      })
     end
   },
 }
