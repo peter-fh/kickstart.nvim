@@ -38,10 +38,12 @@ vim.opt.rtp:prepend(lazypath)
 
 -- [[ Configure and install plugins ]]
 require('lazy').setup({
+  require 'plugins.alpha',
+  require 'plugins.bufferline',
   require 'plugins.cmp',
   require 'plugins.colorscheme',
   require 'plugins.gitblame',
-  require 'plugins.gitsigns',
+  require 'plugins.go-up',
   require 'plugins.grapple',
   require 'plugins.lsp',
   require 'plugins.markview',
@@ -50,10 +52,15 @@ require('lazy').setup({
   require 'plugins.oil',
   require 'plugins.outline',
   require 'plugins.sleuth',
+  require 'plugins.snacks',
   require 'plugins.snow',
   require 'plugins.telescope',
   require 'plugins.todo',
   require 'plugins.treesitter',
+  require 'plugins.trouble',
+  require 'plugins.fzf',
+  require 'plugins.undotree',
+  require 'plugins.zen',
 })
 
 vim.cmd.colorscheme 'kanagawa' -- tokyonight-night gruvbox kanagawa nordic monokai-pro

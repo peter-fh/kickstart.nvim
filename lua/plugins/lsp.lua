@@ -238,4 +238,7 @@ return {
       })
     end
   },
+  { 'kosayoda/nvim-lightbulb' },
+  { 'windwp/nvim-ts-autotag' } ,
+  { 'wellle/context.vim' },
 }
