@@ -40,3 +40,5 @@ vim.keymap.set('v', '<leader>p', '"+p', { desc = 'Paste from system clipboard' }
 vim.keymap.set('n', '<leader>sn', ':LetItSnow<CR>', {desc = 'Let it snow!'})
 
 vim.keymap.set('n', '<leader>gb', ':BlameToggle virtual<CR>')
+
+vim.keymap.set('n', '<leader>t', ':lua MiniFiles.open()<CR>')

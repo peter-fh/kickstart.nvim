@@ -30,6 +30,33 @@ return { -- Collection of various small independent plugins/modules
       return '%2l:%-2v'
     end
 
+    vim.keymap.set(
+      'n',
+      '\\',
+      function () require('mini.files').open() end,
+      { desc = 'Open mini.files()'}
+    )
+
+    require 'mini.diff' .setup()
+    require 'mini.files' .setup({
+    })
+
+    local hipatterns = require('mini.hipatterns')
+    hipatterns.setup({
+      highlighters = {
+
+        -- Highlight hex color strings (`#rrggbb`) using that color
+        hex_color = hipatterns.gen_highlighter.hex_color(),
+      },
+    })
+
+    require 'mini.icons' .setup()
+    require 'mini.move' .setup()
+    require 'mini.operators' .setup()
+    require 'mini.pairs' .setup()
+    require 'mini.splitjoin' .setup()
+
+
     -- ... and there is more!
     --  Check out: https://github.com/echasnovski/mini.nvim
   end,
