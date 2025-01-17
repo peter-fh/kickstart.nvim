@@ -58,6 +58,7 @@ require('lazy').setup({
   require 'plugins.todo',
   require 'plugins.treesitter',
   require 'plugins.trouble',
+  require 'plugins.typr',
   require 'plugins.fzf',
   require 'plugins.undotree',
   require 'plugins.zen',
