@@ -15,6 +15,6 @@ return {
     }
   },
   config = function()
-    Snacks.scroll.enable()
+    --Snacks.scroll.enable()
   end,
 }
