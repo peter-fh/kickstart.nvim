@@ -39,11 +39,11 @@ vim.opt.rtp:prepend(lazypath)
 -- [[ Configure and install plugins ]]
 require('lazy').setup({
   require 'plugins.alpha',
+  require 'plugins.ansible',
   require 'plugins.bufferline',
   require 'plugins.cmp',
   require 'plugins.colorscheme',
   require 'plugins.gitblame',
-  require 'plugins.go-up',
   require 'plugins.grapple',
   require 'plugins.lsp',
   require 'plugins.markview',
