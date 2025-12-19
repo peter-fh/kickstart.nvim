@@ -55,14 +55,16 @@ require('lazy').setup({
   require 'plugins.sleuth',
   require 'plugins.snacks',
   require 'plugins.snow',
+  require 'plugins.swenv',
   --require 'plugins.telescope',
   require 'plugins.todo',
   require 'plugins.treesitter',
   require 'plugins.trouble',
+  require 'plugins.typescript',
   require 'plugins.fzf',
   require 'plugins.undotree',
   require 'plugins.zen',
 })
 
-vim.cmd.colorscheme 'kanagawa' -- tokyonight-night gruvbox kanagawa nordic monokai-pro
+vim.cmd.colorscheme 'gruvbox' -- tokyonight-night gruvbox kanagawa nordic monokai-pro
 vim.diagnostic.config({ virtual_text = false })

@@ -72,10 +72,10 @@ return {
             vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
 
-
           -- Rename the variable under your cursor.
           --  Most Language Servers support renaming across files, etc.
           map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+          map('<leader>ft', vim.lsp.buf.format, '[F]orma[t]')
 
           -- Execute a code action, usually your cursor needs to be on top of an error
           -- or a suggestion from your LSP for this to activate.
@@ -114,7 +114,8 @@ return {
               end,
             })
           end
-          ]]--
+          ]]
+          --
 
           -- The following code creates a keymap to toggle inlay hints in your
           -- code, if the language server you are using supports them
@@ -144,6 +145,8 @@ return {
       --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
+      --
+      local pyenv_python = vim.fn.trim(vim.fn.system("pyenv which python"))
       local servers = {
         clangd = {},
         --gopls = {},
@@ -151,7 +154,6 @@ return {
         --    https://github.com/pmizio/typescript-tools.nvim
         --ts_ls = {},
 
-        jdtls = {},
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
@@ -176,13 +178,27 @@ return {
                   wrapper = {
                     enabled = true,
                     checksums = {
-                      sha256 = "e2b82129ab64751fd40437007bd2f7f2afb3c6e41a9198e628650b22d5824a14",
+                      sha256 = 'e2b82129ab64751fd40437007bd2f7f2afb3c6e41a9198e628650b22d5824a14',
                       allowed = true,
-                    }
+                    },
                   },
                 },
               },
             },
+          },
+        },
+        basedpyright = {
+          settings = {
+            python = {
+              pythonPath = pyenv_python
+            }
+          },
+        },
+        omnisharp = {
+          cmd = {
+            'mono',
+            '--assembly-loader=strict',
+            '/Users/pfh/.config/omnisharp/omnisharp/OmniSharp.exe',
           },
         },
       }
@@ -218,20 +234,20 @@ return {
     end,
   },
   {
-    "rachartier/tiny-inline-diagnostic.nvim",
-    event = "VeryLazy", -- Or `LspAttach`
+    'rachartier/tiny-inline-diagnostic.nvim',
+    event = 'VeryLazy', -- Or `LspAttach`
     priority = 1000, -- needs to be loaded in first
     config = function()
-      require('tiny-inline-diagnostic').setup({
+      require('tiny-inline-diagnostic').setup {
         options = {
           multilines = true,
           multiple_diag_under_cursor = true,
           throttle = 0,
           show_all_diags_on_cursorline = true,
-        }
-      })
-    end
+        },
+      }
+    end,
   },
   { 'kosayoda/nvim-lightbulb' },
-  { 'windwp/nvim-ts-autotag' } ,
+  { 'windwp/nvim-ts-autotag' },
 }
