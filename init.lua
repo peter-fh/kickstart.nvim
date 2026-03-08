@@ -40,9 +40,11 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   require 'plugins.alpha',
   require 'plugins.ansible',
+  require 'plugins.begood',
   require 'plugins.bufferline',
   require 'plugins.cmp',
   require 'plugins.colorscheme',
+  require 'plugins.dap',
   require 'plugins.gitblame',
   require 'plugins.grapple',
   require 'plugins.lsp',
